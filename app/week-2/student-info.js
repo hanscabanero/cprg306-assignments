@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export default function StudentInfo() {
     return (
-        <div class = "border-amber-600 border-2">
+        <div>
             <h2>
             Hans Cabanero
             Sean Lee
