@@ -4,9 +4,8 @@ export default function Page()
 {
   return (
     <main>
-      <h1>This is my home page</h1>
+      <h1>CPRG306: Web Development 2 - Assignments</h1>
       <Link href="/week-2">Go to week 2 page</Link>
- 
     </main>
   );
 }
