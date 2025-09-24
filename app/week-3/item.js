@@ -1,13 +1,8 @@
-import React from "react";
-
-function Item({ name, quantity, category }) {
+export default function Item({ name, quantity, category }) {
     return (
-        <li className="bg-white shadow rounded p-4 mb-2 flex flex-col">
-            <span className="font-bold text-lg">{name}</span>
-            <span className="text-black">Quantity: {quantity}</span>
-            <span className="text-black">Category: {category}</span>
+        <li className="bg-white rounded-2xl p-6 mb-2 flex flex-col shadow-lg">
+            <span className="font-bold text-xl">{name}</span>
+            <span className="text-black">Buy {quantity} in {category}</span>
         </li>
     );
 }
-
-export default Item;

@@ -1,13 +1,16 @@
 import Item from "./item";
-import items from "./items";
+import {items} from "./items";
 
 
-function ItemList() {
+export default function ItemList() {
     return (
         <div>
-            
+            <ul>
+                {/* map function serves as loop based of position in array */}
+                {items.map((item, index) => ( 
+                    <Item key={index} {...item} /> //spread operator
+                ))}
+            </ul>
         </div>
     );
 }
-
-export default ItemList;
