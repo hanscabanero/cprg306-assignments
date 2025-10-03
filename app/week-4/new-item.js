@@ -8,18 +8,11 @@ export default function NewItem()
 
     function incrementQuantity() 
     {
-      // if (quantity < 20)
-      {
-        setQuantity(quantity + 1);
-      }
-      
+      setQuantity(quantity + 1);
     }
     function decrementQuantity()
     {
-      // if (quantity > 1)
-      {
-        setQuantity(quantity - 1);
-      }
+      setQuantity(quantity - 1);
     }
 
   return (
