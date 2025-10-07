@@ -3,21 +3,17 @@ import { useState } from "react";
 import NewItem from "./new-item.js";
 
 export default function Page() {
+    // declare state variables for the form inputs
     const [name, setName] = useState("");
-
-    const [category, setCategory] = useState("produce"); // default value
-
+    const [category, setCategory] = useState("produce");
     const [quantity, setQuantity] = useState(1);
 
+
     function handleSubmit(e) {
-        e.preventDefault();
-        const item = {
-            name,
-            quantity,
-            category
-        };
-        console.log(item);
-        alert(`Name: ${name}\nQuantity: ${quantity}\nCategory: ${category}`);
+        e.preventDefault(); // Stop from reloading the page
+        alert(`Name: ${name}
+            \nQuantity: ${quantity}
+            \nCategory: ${category}`);
         setName("");
         setQuantity(1);
         setCategory("produce");
@@ -27,6 +23,7 @@ export default function Page() {
         <main>
             <form
                 className="mx-auto my-4 gap-3 flex flex-col justify-center text-black bg-white w-100 p-4 border border-gray-300 rounded-lg shadow-2xl"
+                // call submit handler function
                 onSubmit={handleSubmit}
             >
                 <h1 className="mx-auto text-xl font-bolder mb-4">
@@ -39,17 +36,21 @@ export default function Page() {
                     name="name"
                     id="name"
                     value={name}
+                    // set the name state variable when the user types in the input field
                     onChange={e => setName(e.target.value)}
                 />
                 <div className="flex flex-row justify-between gap-4">
-                    <NewItem/>
+                    {/* quantity selector, pass quantity into new-item component*/}
+                    <NewItem quantity={quantity} setQuantity={setQuantity} />
                     <select
                         className="p-2 border border-gray-300 rounded"
                         name="category"
                         id="category"
                         value={category}
+                        // set the category state variable when the user selects a different option
                         onChange={e => setCategory(e.target.value)}
                     >
+                        {/* provide values for user to choose and store them */}
                         <option value="produce">Produce</option>
                         <option value="dairy">Dairy</option>
                         <option value="bakery">Bakery</option>
@@ -63,6 +64,7 @@ export default function Page() {
                         <option value="Others">Others</option>
                     </select>
                 </div>
+                {/* submit button */}
                 <button className="bg-blue-500 text-white p-3 rounded-lg" type="submit"> Add Item </button>
             </form>
         </main>
