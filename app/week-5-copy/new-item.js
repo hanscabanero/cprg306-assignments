@@ -1,17 +1,16 @@
 "use client";
-import { useState } from "react";
-import NewItem from "./new-item.js";
+import {useState} from "react";
 
-export default function Page() {
+export default function NewItem() {
+  const [quantity, setQuantity] = useState(1);
     // declare state variables for the form inputs
     const [name, setName] = useState("");
     const [category, setCategory] = useState("produce");
-    const [quantity, setQuantity] = useState(1);
 
 
     function handleSubmit(e) {
         e.preventDefault(); // Stop from reloading the page
-        // initialize an item objec
+        // initialize an item object
         const item = {
             name: name,
             quantity: quantity,
@@ -25,9 +24,20 @@ export default function Page() {
         setName("");
         setQuantity(1);
         setCategory("produce");
+
+      }
+    function incrementQuantity(e) 
+    {
+      e.preventDefault();
+      setQuantity(quantity + 1);
+    }
+    function decrementQuantity(e)
+    {
+      e.preventDefault();
+      setQuantity(quantity - 1);
     }
 
-    return (
+  return (
         <main>
             <form
                 className="mx-auto my-4 gap-3 flex flex-col justify-center text-black bg-white w-100 p-4 border border-gray-300 rounded-lg shadow-2xl"
@@ -51,9 +61,18 @@ export default function Page() {
                     // Add required attribute to the input field to ensure that the user cannot submit the form without providing a name.   
                     required
                 />
-                <div className="flex flex-row justify-between gap-4">
-                    {/* quantity selector, pass quantity into new-item component*/}
-                    <NewItem quantity={quantity} setQuantity={setQuantity} />
+                  <div className="align-middle flex flex-row items-center">
+                    <div className="rounded-xl border p-2 border-gray-300">
+                        <button className="px-4 py-2 bg-red-500 text-white text-2xl rounded-xl disabled:bg-gray-500 " type="button" onClick={decrementQuantity} disabled={quantity == 1}>
+                          -
+                        </button>
+                        <span className="font-mono m-6 text-xl align-middle">{quantity}</span>
+                        <button className="px-4 py-2 bg-green-500 text-white text-2xl rounded-xl disabled:bg-gray-500" type="button" onClick={incrementQuantity} disabled={quantity == 20}>
+                          +
+                        </button>
+                    </div>
+                  </div>
+                    
                     {/* • Create a select element for the category. */}
                     <select
                         className="p-2 border border-gray-300 rounded"
@@ -77,7 +96,6 @@ export default function Page() {
                         <option value="household">Household</option>
                         <option value="Others">Others</option>
                     </select>
-                </div>
                 {/* submit button */}
                 <button className="bg-blue-500 text-white p-3 rounded-lg" type="submit"> Add Item </button>
             </form>
