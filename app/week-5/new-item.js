@@ -1,3 +1,9 @@
+<<<<<<< HEAD
+=======
+"use client";
+import { useState } from "react";
+
+>>>>>>> c3b17279d92991ab86d5a26528b55e78ab63049e
 export default function NewItem({quantity, setQuantity}) 
 {
     function incrementQuantity() 
@@ -22,4 +28,8 @@ export default function NewItem({quantity, setQuantity})
       </div>
     </div>
   );
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> c3b17279d92991ab86d5a26528b55e78ab63049e

@@ -8,21 +8,21 @@ export default function NewItem()
 
     function incrementQuantity() 
     {
-        setQuantity(quantity + 1);
+      setQuantity(quantity + 1);
     }
     function decrementQuantity()
     {
-        setQuantity(quantity - 1);
+      setQuantity(quantity - 1);
     }
 
   return (
     <div className="flex items-center justify-center gap-4 h-screen flex-col">
       <div className="bg-gray-200 p-10 rounded-xl">
-          <button className="w-16 p-6 bg-blue-500 text-white text-2xl rounded-xl" onClick={decrementQuantity} disabled={quantity == 1}>
+          <button className="w-16 p-6 bg-blue-500 text-white text-2xl rounded-xl disabled:bg-gray-500" onClick={decrementQuantity} disabled={quantity == 1}>
             -
           </button>
           <span className="font-mono m-10 text-5xl align-middle">{quantity}</span>
-          <button className="p-6 bg-blue-500 text-white text-2xl rounded-xl" onClick={incrementQuantity} disabled={quantity == 20}>
+          <button className="p-6 bg-blue-500 text-white text-2xl rounded-xl disabled:bg-gray-500" onClick={incrementQuantity} disabled={quantity == 20}>
             +
           </button>
       </div>
