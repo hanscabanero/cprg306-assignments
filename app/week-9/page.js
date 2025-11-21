@@ -28,7 +28,9 @@ export default function Page() {
           >
             Sign Out
           </button>
-
+          
+          <Link href="/shopping-list">Shopping List</Link>
+          
           <p className="mb-4">
             Welcome, {user.displayName}, Your email is{" "}
             {user.email}. and here is your image!
@@ -46,3 +48,4 @@ export default function Page() {
     </main>
   );
 }
+
