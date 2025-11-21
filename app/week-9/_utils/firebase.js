@@ -1,3 +1,4 @@
+"use client";
 // Part 2: Firebase code starts
 
 // Import the functions you need from the SDKs you need
