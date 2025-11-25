@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 
 import { useUserAuth } from "./_utils/auth-context";
 
@@ -29,7 +30,7 @@ export default function Page() {
             Sign Out
           </button>
           
-          <Link href="/shopping-list">Shopping List</Link>
+          <Link href="week-9/shopping-list">Shopping List</Link>
           
           <p className="mb-4">
             Welcome, {user.displayName}, Your email is{" "}
