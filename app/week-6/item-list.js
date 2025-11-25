@@ -1,25 +1,23 @@
-// Use the useState hook to create a state variable sortBy and its setter function setSortBy. This will be used to determine the sorting preference of the user.
 "use client";
 import Item from "./item";
 import items from "./items.json";
 import { useState } from "react";
 
 function SortButtons() {
-    // Set the initial value of sortBy to "name", indicating that the list should initially be sorted by name.
+    // Set the initial value of sortBy to name
     const [sortBy, setSortBy] = useState("name");
-    // Use JavaScript's sort function to sort the items array based on the sortBy state variable.
+    
     const sortedItems = [...items].sort((itemA, itemB) => {
-        // If sortBy is "name", sort the items by their name property.
+        // If sortBy is name, sort the items by their name property.
         if (sortBy === "name") {
             return itemA.name.localeCompare(itemB.name);
-        // If sortBy is "category", sort the items by their category property
+        // If sortBy is category, sort the items by their category property
         } else if (sortBy === "category") {
             return itemA.category.localeCompare(itemB.category);
         }
-        return 0;
     });
     return (
-        // Create two buttons that allow the user to change the value of sortBy to "name" or "category". These buttons should change the sorting of the items when clicked.
+        // Create two buttons that allow the user to change the value of sortBy to name or category.
         <div>
             <button
                 className={`m-2 p-2 rounded text-white ${
@@ -38,9 +36,6 @@ function SortButtons() {
                 Sort by Category
             </button>
             <ul>
-            {/* Use the map function to create a new Item component for each item in the items array.
-            Don't forget to provide a unique key prop for each Item (you can use the item's id for this
-            purpose). */}
                 {sortedItems.map((item) => (
                     <Item key={item.id} {...item} />
                 ))}
