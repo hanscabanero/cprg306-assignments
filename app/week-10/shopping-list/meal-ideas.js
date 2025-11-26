@@ -40,7 +40,7 @@ useEffect(() =>
 return (
     <div className="p-4 bg-white rounded-lg shadow-md">
     <h2 className="text-2xl font-bold mb-4">
-        Meal Ideas for: {ingredient || " "}
+        Meal Ideas for
     </h2>
     {meals.length > 0 ? (
         <ul className="space-y-4">
@@ -55,7 +55,7 @@ return (
         </ul>
     ) :
     (
-        <p className="text-gray-500"> No meals found </p>
+        <p className="text-gray-500"> No meals found  for {ingredient}</p>
     )}
     </div>
 );
