@@ -64,6 +64,7 @@ export default function Page() {
       <div className="flex flex-col md:flex-row gap-8 justify-center">
         <div className="flex-1 max-w-xl">
           <NewItem onAddItem={handleAddItem} />
+          {/* Pass item select function on item select */}
           <ItemList items={items} onItemSelect={handleItemSelect} />
         </div>
 
